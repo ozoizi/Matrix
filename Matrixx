@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>🟢 Matrix Kayar Yazı</title>
+<style>
+  body {
+    background: black;
+    color: #0f0;
+    font-family: "Courier New", monospace;
+    font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  #matrix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: kaydir 15s linear infinite;
+  }
+
+  @keyframes kaydir {
+    0% { left: 100%; }
+    100% { left: -100%; }
+  }
+
+  .parla {
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+  }
+</style>
+</head>
+<body>
+  <div id="matrix" class="parla">🟢 NE MUTLU... TURKUM DİYENE 🟢</div>
+
+  <script>
+    // Yazıyı rastgele harflerle değiştirip Matrix etkisi verir
+    const textEl = document.getElementById("matrix");
+    const orijinal = textEl.textContent.split("");
+    setInterval(() => {
+      textEl.textContent = orijinal.map(ch =>
+        Math.random() > 0.9 ? String.fromCharCode(33 + Math.random() * 94) : ch
+      ).join("");
+    }, 100);
+  </script>
+</body>
+</html>
